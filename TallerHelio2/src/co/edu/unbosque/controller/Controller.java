@@ -16,7 +16,6 @@ public class Controller {
 		for(int x=0;x<numero.length;x++) {
 			System.out.println(x+" - "+numero[x]);
 		}
-		System.out.println("si");
 		
 	}
 	
