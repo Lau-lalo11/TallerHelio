@@ -12,6 +12,7 @@ public class Controller {
 		vista = new Vista();
 		funcionOrdenamiento = new FuncionDeOrdenamiento();
 		
+		
 		int[] numero=funcionOrdenamiento.cocktail_Sort(generarNumerosAleatorios(vista.obtenerDato("Ingresar el tamano que va a poner a prueba")));
 		for(int x=0;x<numero.length;x++) {
 			System.out.println(x+" - "+numero[x]);
