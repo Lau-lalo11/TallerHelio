@@ -37,17 +37,19 @@ public class Controller {
 						" 2. QuicSort"+"\n"+
 						" 3. RadixSort"+"\n"+
 						" 4. Binary tree sort"+"\n"));
-				if(numeros !=null) {
-					if(!vista.recibirBoolean("¿Desea utilizar el arreglo anterior?")) { 
-						tamanioNumeros = Long.parseLong(vista.recibirDato("Ingrese que cantidad de datos desea ordenar\n"));
+				if(opcion !=0) {
+					if(numeros !=null) {
+						if(!vista.recibirBoolean("¿Desea utilizar el arreglo anterior?")) { 
+							tamanioNumeros = Long.parseLong(vista.recibirDato("Ingrese que cantidad de datos desea ordenar\n"));
 
+							numeros = generarNumerosAleatorios(tamanioNumeros);
+						}
+					}else {
+						tamanioNumeros = Long.parseLong(vista.recibirDato("Ingrese que cantidad de datos desea ordenar\n"));
 						numeros = generarNumerosAleatorios(tamanioNumeros);
 					}
-				}else {
-					tamanioNumeros = Long.parseLong(vista.recibirDato("Ingrese que cantidad de datos desea ordenar\n"));
-					numeros = generarNumerosAleatorios(tamanioNumeros);
+					vista.mostrarVentana("Ya se cargaron los datos.");
 				}
-				vista.mostrarVentana("Ya se cargaron los datos.");
 				String resultado = "";
 				switch (opcion) {
 
@@ -114,7 +116,7 @@ public class Controller {
 
 	}
 
-	
+
 	public long[] generarNumerosAleatorios(long numeroElementos) {
 		long[] numeros= new long[(int) numeroElementos];
 		ArrayList<Long> numeross = new ArrayList<>();
