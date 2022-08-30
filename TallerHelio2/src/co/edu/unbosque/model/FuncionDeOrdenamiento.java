@@ -19,9 +19,9 @@ public class FuncionDeOrdenamiento {
 
 
 
-	public ArrayList<Integer> treeSort(int[] array) {
-		tree.treeins(array);
-        tree.inorderRec(tree.root);
+	public ArrayList<Long> treeSort(long[] numeros) {
+		tree.treeins(numeros);
+        tree.inorder();
         return tree.getSorted();
 	}
 	

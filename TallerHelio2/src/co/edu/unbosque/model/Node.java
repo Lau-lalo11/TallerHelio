@@ -3,20 +3,20 @@ package co.edu.unbosque.model;
 
 
 public class Node {
-	 int key;
+	 Long key;
      Node left, right;
 
-     public Node(int item)
+     public Node(Long item)
      {
          key = item;
          left = right = null;
      }
 
-	public int getKey() {
+	public Long getKey() {
 		return key;
 	}
 
-	public void setKey(int key) {
+	public void setKey(Long key) {
 		this.key = key;
 	}
 

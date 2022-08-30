@@ -3,10 +3,10 @@ package co.edu.unbosque.model;
 public class RadixSort {
 	
 	
-	public int[] radixSort(int[] arr) {
-		int[][] bucket = new int[10][arr.length];
-		int[] bucketOfElement = new int[10];
-		int max=0;
+	public long[] radixSort(long[] arr) {
+		long[][] bucket = new long[10][arr.length];
+		long[] bucketOfElement = new long[10];
+		long max=0;
 		// Encuentra el elemento más grande en la matriz
 		for(int i = 0 ; i < arr.length;i++) {
 			if(arr[i]>max){
@@ -14,13 +14,13 @@ public class RadixSort {
 			}
 		}
 		// Calcula el número de bits del elemento más grande
-		int maxLength = (max+"").length();
+		long maxLength = (max+"").length();
 		for(int m = 0,n=1;m<maxLength;m++,n*=10) {
 			// Coloca los números en arr en los cubos correspondientes según sus unidades, decenas, centenas, etc.
 			for(int i = 0 ; i < arr.length;i++) {
-				int digit = arr[i]/n%10;
+				int digit = (int) (arr[i]/n%10);
 				// Asignar el valor de arr [i] a la matriz bidimensional en el depósito
-				bucket[digit][bucketOfElement[digit]] = arr[i];
+				bucket[digit][(int) bucketOfElement[digit]] = arr[i];
 				bucketOfElement[digit]++;
 			}
 			int index = 0;

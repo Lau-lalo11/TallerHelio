@@ -1,11 +1,12 @@
 package co.edu.unbosque.model;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 public class Tree {
 	// Root of BST
     Node root;
-    ArrayList<Integer> sorted;
+    ArrayList<Long> sorted;
     // Constructor
     Tree(){
     	sorted = new ArrayList<>();
@@ -14,13 +15,13 @@ public class Tree {
  
     // This method mainly
     // calls insertRec()
-    void insert(int key){
+    public void insert(Long key){
         root = insertRec(root, key);
     }
      
     /* A recursive function to
     insert a new key in BST */
-    public Node insertRec(Node root, int key){
+    public Node insertRec(Node root, Long key){
  
         /* If the tree is empty,
         return a new node */
@@ -53,7 +54,29 @@ public class Tree {
         
     }
     
-    public void treeins(int arr[])
+    public void inorder()
+    {
+        if(root ==null)
+        return ;
+        Node temp=null;
+        Stack<Node> stack=new Stack<Node>(); //Creating an empty Stack 
+        for(temp=root; stack.size()>0 || temp!=null ;temp=temp.right)
+        {
+        /*loop until we are on the left most node of the current node */
+         while(temp!=null)
+         {
+                 stack.push(temp);  //inserting an element into stack
+                 temp=temp.left;
+        }
+        /* removing the top element from the stack */
+        temp=stack.pop();
+        sorted.add(temp.key);
+        System.out.print(temp.key+" ");
+       }
+    }
+    
+    
+    public void treeins(long arr[])
     {
         for(int i = 0; i < arr.length; i++)
         {
@@ -62,11 +85,11 @@ public class Tree {
          
     }
 
-	public ArrayList<Integer> getSorted() {
+	public ArrayList<Long> getSorted() {
 		return sorted;
 	}
 
-	public void setSorted(ArrayList<Integer> sorted) {
+	public void setSorted(ArrayList<Long> sorted) {
 		this.sorted = sorted;
 	}
     

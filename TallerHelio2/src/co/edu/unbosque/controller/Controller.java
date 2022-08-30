@@ -21,13 +21,13 @@ public class Controller {
 
 		vista.mostrarVentana("Bienvenido al ordenamiento de arreglos");
 
-		int tamanioNumeros =0;
-		int[] numeros = null;
-		int[] organizado= null;
+		long tamanioNumeros =0;
+		long[] numeros = null;
+		long[] organizado= null;
 		long startTime;
 		long endTime;
 
-		int opcion = -1;
+		int  opcion = -1;
 		while(opcion != 0) {
 			try {
 
@@ -37,17 +37,19 @@ public class Controller {
 						" 2. QuicSort"+"\n"+
 						" 3. RadixSort"+"\n"+
 						" 4. Binary tree sort"+"\n"));
-				if(numeros !=null) {
-					if(!vista.recibirBoolean("¿Desea utilizar el arreglo anterior?")) { 
-						tamanioNumeros = Integer.parseInt(vista.recibirDato("Ingrese que cantidad de datos desea ordenar\n"));
+				if(opcion !=0) {
+					if(numeros !=null) {
+						if(!vista.recibirBoolean("¿Desea utilizar el arreglo anterior?")) { 
+							tamanioNumeros = Long.parseLong(vista.recibirDato("Ingrese que cantidad de datos desea ordenar\n"));
 
+							numeros = generarNumerosAleatorios(tamanioNumeros);
+						}
+					}else {
+						tamanioNumeros = Long.parseLong(vista.recibirDato("Ingrese que cantidad de datos desea ordenar\n"));
 						numeros = generarNumerosAleatorios(tamanioNumeros);
 					}
-				}else {
-					tamanioNumeros = Integer.parseInt(vista.recibirDato("Ingrese que cantidad de datos desea ordenar\n"));
-					numeros = generarNumerosAleatorios(tamanioNumeros);
+					vista.mostrarVentana("Ya se cargaron los datos.");
 				}
-				vista.mostrarVentana("Ya se cargaron los datos.");
 				String resultado = "";
 				switch (opcion) {
 
@@ -70,7 +72,7 @@ public class Controller {
 				case 2: 
 
 					startTime = System.nanoTime();
-					organizado = funcionOrdenamiento.getQuicksort().organizarDato(numeros); 
+					organizado = funcionOrdenamiento.getQuicksort().iterativeQuicksort(numeros); 
 					endTime = (System.nanoTime() - startTime);
 
 					resultado = "Q: "+"Tamaño:"+tamanioNumeros+" Tiempo:"+ endTime +" NanoSegundos";
@@ -88,7 +90,7 @@ public class Controller {
 					vista.mostrarVentana("Resultados:\n"+resultado);
 					break;
 				case 4: 
-					ArrayList<Integer> numerosSorted;
+					ArrayList<Long> numerosSorted;
 
 					startTime = System.nanoTime();
 					numerosSorted = funcionOrdenamiento.treeSort(numeros);
@@ -101,63 +103,26 @@ public class Controller {
 					break;
 
 				default:
-					vista.mostrarVentana("La opción ingresada no existe, vuelva intentarlo");
+					vista.mostrarVentana("La opción ingresada no existe, vuelva longentarlo");
 					break;
 				}
 
-				if(resultado!="") escribirContenido(resultado);
+				if(resultado!="") vista.escribirContenido(resultado);
 				resultado="";
 			}catch(NumberFormatException e) {
-				vista.mostrarVentana("El cáracter ingresado es invalido, vuelva intentarlo");
+				vista.mostrarVentana("El cáracter ingresado es invalido, vuelva longentarlo");
 			}
 		}
 
 	}
 
-	public void escribirContenido(String palabras) {
 
-		try {
-			String contenido =leerContenido()+palabras+"\n";
-			FileWriter myWriter = new FileWriter("resultado.txt");
-
-
-
-			myWriter.write(contenido);
-			myWriter.close();
-		} catch (IOException e) {
-			System.out.println("Un error ocurrió.");
-			e.printStackTrace();
-		}
-	}
-
-	public String leerContenido(){
-		String texto="";
-		File file = new File("resultado.txt");
-		String word;
-		try {
-			FileReader fileReader = new FileReader(file);
-			BufferedReader bufferReader = new BufferedReader(fileReader);
-			word = bufferReader.readLine();
-			do {
-				if(word!=null) texto+=word+"\n";
-
-				word = bufferReader.readLine();
-			}while(word!=null);
-			fileReader.close();
-
-		}catch (Exception e) {
-
-		}
-		System.out.println(texto);
-		return texto;
-	}
-
-	public int[] generarNumerosAleatorios(int numeroElementos) {
-		int[] numeros= new int[numeroElementos];
-		ArrayList<Integer> numeross = new ArrayList<>();
+	public long[] generarNumerosAleatorios(long numeroElementos) {
+		long[] numeros= new long[(int) numeroElementos];
+		ArrayList<Long> numeross = new ArrayList<>();
 
 		while(numeross.size() != numeroElementos) {
-			int aleatorio= (int) (Math.random()*numeroElementos);
+			long aleatorio= (long) (Math.random()*numeroElementos*100);
 			if(!numeross.contains(aleatorio)) { 
 				numeross.add(aleatorio);
 			}
