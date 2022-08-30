@@ -4,12 +4,12 @@ import javax.swing.JOptionPane;
 
 public class Vista {
 	
-	public void mostrarMensaje(String mensaje) {
-		JOptionPane.showMessageDialog(null, mensaje);
+	public void mostrarVentana(String msg) {
+		JOptionPane.showMessageDialog(null, msg);
 	}
 
-	public int obtenerDato(String mensaje) {
-		return Integer.valueOf(JOptionPane.showInputDialog(mensaje));
+	public String recibirDato(String msg) {
+		return JOptionPane.showInputDialog(null, msg);
 	}
 
 }

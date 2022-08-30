@@ -1,0 +1,2 @@
+B: Tamaño:6000 Tiempo:4261800 NanoSegundos
+B: Tamaño:60000 Tiempo:38994700 NanoSegundos
