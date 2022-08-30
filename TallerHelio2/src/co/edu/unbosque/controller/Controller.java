@@ -1,12 +1,10 @@
 package co.edu.unbosque.controller;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import co.edu.unbosque.model.FuncionDeOrdenamiento;
 import co.edu.unbosque.view.Vista;
@@ -23,7 +21,9 @@ public class Controller {
 
 		vista.mostrarVentana("Bienvenido al ordenamiento de arreglos");
 
-		int[] numeros;
+		int tamanioNumeros =0;
+		int[] numeros = null;
+		int[] organizado= null;
 		long startTime;
 		long endTime;
 
@@ -37,19 +37,30 @@ public class Controller {
 						" 2. QuicSort"+"\n"+
 						" 3. RadixSort"+"\n"+
 						" 4. Binary tree sort"+"\n"));
+				if(numeros !=null) {
+					if(!vista.recibirBoolean("¿Desea utilizar el arreglo anterior?")) { 
+						tamanioNumeros = Integer.parseInt(vista.recibirDato("Ingrese que cantidad de datos desea ordenar\n"));
 
-				int tamanioNumeros = Integer.parseInt(vista.recibirDato("Ingrese que cantidad de datos desea ordenar\n"));
+						numeros = generarNumerosAleatorios(tamanioNumeros);
+					}
+				}else {
+					tamanioNumeros = Integer.parseInt(vista.recibirDato("Ingrese que cantidad de datos desea ordenar\n"));
+					numeros = generarNumerosAleatorios(tamanioNumeros);
+				}
+				vista.mostrarVentana("Ya se cargaron los datos.");
 				String resultado = "";
 				switch (opcion) {
 
 				case 0: vista.mostrarVentana("¡Vuelve pronto!");
 				break;
 
+
+
 				case 1: 
-					numeros = generarNumerosAleatorios(tamanioNumeros);
+
 
 					startTime = System.nanoTime();
-					numeros = funcionOrdenamiento.getCocktailSort().cocktail_Sort(numeros);
+					organizado = funcionOrdenamiento.getCocktailSort().cocktail_Sort(numeros);
 					endTime = (System.nanoTime() - startTime);
 
 					resultado = "C: "+"Tamaño:"+tamanioNumeros+" Tiempo:"+ endTime +" NanoSegundos";
@@ -57,10 +68,9 @@ public class Controller {
 					vista.mostrarVentana("Resultados:\n"+resultado);
 					break;
 				case 2: 
-					numeros = generarNumerosAleatorios(tamanioNumeros);
 
 					startTime = System.nanoTime();
-					numeros = funcionOrdenamiento.getQuicksort().organizarDato(numeros); 
+					organizado = funcionOrdenamiento.getQuicksort().organizarDato(numeros); 
 					endTime = (System.nanoTime() - startTime);
 
 					resultado = "Q: "+"Tamaño:"+tamanioNumeros+" Tiempo:"+ endTime +" NanoSegundos";
@@ -68,10 +78,9 @@ public class Controller {
 					vista.mostrarVentana("Resultados:\n"+resultado);
 					break;
 				case 3: 
-					numeros = generarNumerosAleatorios(tamanioNumeros);
 
 					startTime = System.nanoTime();
-					numeros = funcionOrdenamiento.getRadixSort().radixSort(numeros);
+					organizado = funcionOrdenamiento.getRadixSort().radixSort(numeros);
 					endTime = (System.nanoTime() - startTime);
 
 					resultado = "R: "+"Tamaño:"+tamanioNumeros+" Tiempo:"+ endTime +" NanoSegundos";
@@ -80,7 +89,6 @@ public class Controller {
 					break;
 				case 4: 
 					ArrayList<Integer> numerosSorted;
-					numeros = generarNumerosAleatorios(tamanioNumeros);
 
 					startTime = System.nanoTime();
 					numerosSorted = funcionOrdenamiento.treeSort(numeros);
@@ -91,7 +99,7 @@ public class Controller {
 					vista.mostrarVentana("Resultados:\n"+resultado);
 
 					break;
-					
+
 				default:
 					vista.mostrarVentana("La opción ingresada no existe, vuelva intentarlo");
 					break;
@@ -111,7 +119,7 @@ public class Controller {
 		try {
 			String contenido =leerContenido()+palabras+"\n";
 			FileWriter myWriter = new FileWriter("resultado.txt");
-			
+
 
 
 			myWriter.write(contenido);
@@ -132,7 +140,7 @@ public class Controller {
 			word = bufferReader.readLine();
 			do {
 				if(word!=null) texto+=word+"\n";
-				
+
 				word = bufferReader.readLine();
 			}while(word!=null);
 			fileReader.close();
