@@ -32,7 +32,7 @@ public class Quicksort {
 		return arreglo;
 	}
 
-	public int[] OrganizarDato(int arreglo[]) {
+	public int[] organizarDato(int arreglo[]) {
 		return quicksort(arreglo,0,arreglo.length-1);
 	}
 

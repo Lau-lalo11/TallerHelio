@@ -48,7 +48,6 @@ public class Tree {
         if (root != null){
             inorderRec(root.left);
             sorted.add(root.key);
-            System.out.print(root.key + " ");
             inorderRec(root.right);
         }
         
