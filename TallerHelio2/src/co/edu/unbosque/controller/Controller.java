@@ -88,6 +88,7 @@ public class Controller {
 					resultado = "R: "+"Tamaño:"+tamanioNumeros+" Tiempo:"+ endTime +" NanoSegundos";
 
 					vista.mostrarVentana("Resultados:\n"+resultado);
+					
 					break;
 				case 4: 
 					ArrayList<Long> numerosSorted;
@@ -99,14 +100,15 @@ public class Controller {
 					resultado = "B: "+"Tamaño:"+tamanioNumeros+" Tiempo:"+ endTime +" NanoSegundos";
 
 					vista.mostrarVentana("Resultados:\n"+resultado);
-
+					
 					break;
-
 				default:
 					vista.mostrarVentana("La opción ingresada no existe, vuelva longentarlo");
 					break;
 				}
 
+				
+				
 				if(resultado!="") vista.escribirContenido(resultado);
 				resultado="";
 			}catch(NumberFormatException e) {
@@ -122,7 +124,7 @@ public class Controller {
 		ArrayList<Long> numeross = new ArrayList<>();
 
 		while(numeross.size() != numeroElementos) {
-			long aleatorio= (long) (Math.random()*numeroElementos*100);
+			long aleatorio= (long) (Math.random()*numeroElementos*10000);
 			if(!numeross.contains(aleatorio)) { 
 				numeross.add(aleatorio);
 			}
