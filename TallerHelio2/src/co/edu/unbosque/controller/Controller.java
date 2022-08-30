@@ -1,4 +1,6 @@
 package co.edu.unbosque.controller;
+import java.util.Arrays;
+
 import co.edu.unbosque.model.FuncionDeOrdenamiento;
 import co.edu.unbosque.view.Vista;
 
@@ -13,11 +15,12 @@ public class Controller {
 		funcionOrdenamiento = new FuncionDeOrdenamiento();
 		
 		
-		int[] numero=funcionOrdenamiento.cocktail_Sort(generarNumerosAleatorios(vista.obtenerDato("Ingresar el tamano que va a poner a prueba")));
-		for(int x=0;x<numero.length;x++) {
-			System.out.println(x+" - "+numero[x]);
-		}
-		
+//		int[] numero=funcionOrdenamiento.cocktail_Sort(generarNumerosAleatorios(vista.obtenerDato("Ingresar el tamano que va a poner a prueba")));
+//		for(int x=0;x<numero.length;x++) {
+//			System.out.println(x+" - "+numero[x]);
+//		}
+
+		System.out.println(Arrays.toString(funcionOrdenamiento.radixSort(generarNumerosAleatorios(10))));
 	}
 	
 	public int[] generarNumerosAleatorios(int numeroElementos) {
@@ -25,6 +28,7 @@ public class Controller {
 		for(int x=0;x<numeroElementos;x++) {
 			numeros[x]= (int) (Math.random()*numeroElementos);
 		}
+		System.out.println(Arrays.toString(numeros));
 		return numeros;
 	}
 
