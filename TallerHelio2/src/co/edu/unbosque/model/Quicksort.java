@@ -1,39 +1,85 @@
 package co.edu.unbosque.model;
+import java.util.Stack;
 
 public class Quicksort {
 
-	public int particion(int arreglo[], int izquierda, int derecha) {
-		int pivote = arreglo[izquierda];
-		while (true) {
-			while (arreglo[izquierda] < pivote) {
-				izquierda++;
-			}
-			while (arreglo[derecha] > pivote) {
-				derecha--;
-			}
-			if (izquierda >= derecha) {
-				return derecha;
-			} else {
-				int temporal = arreglo[izquierda];
-				arreglo[izquierda] = arreglo[derecha];
-				arreglo[derecha] = temporal;
-				izquierda++;
-				derecha--;
-			}
-		}
-	}
+    private int x;
+    private int y;
 
-	public int[] quicksort(int arreglo[], int izquierda, int derecha) {
-		if (izquierda < derecha) {
-			int indiceParticion = particion(arreglo, izquierda, derecha);
-			quicksort(arreglo, izquierda, indiceParticion);
-			quicksort(arreglo, indiceParticion + 1, derecha);
-		}
-		return arreglo;
-	}
+    Quicksort(){
 
-	public int[] organizarDato(int arreglo[]) {
-		return quicksort(arreglo,0,arreglo.length-1);
-	}
+    }
+
+    Quicksort(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public void swap (long[] arr, int i, int j){
+        long temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    public int partition(long a[], int start, int end){
+        long pivot = a[end];
+        int pIndex = start;
+
+        for (int i = start; i < end; i++){
+            if (a[i] <= pivot)
+            {
+                swap(a, i, pIndex);
+                pIndex++;
+            }
+        }
+
+        swap (a, pIndex, end);
+        return pIndex;
+    }
+
+    public long[] iterativeQuicksort(long[] a){
+
+        Stack<Quicksort> stack = new Stack<>();
+
+        int start = 0;
+        int end = a.length - 1;
+
+        stack.push(new Quicksort(start, end));
+
+        while (!stack.empty())
+        {
+            start = stack.peek().getX();
+            end = stack.peek().getY();
+            stack.pop();
+            int pivot = partition(a, start, end);
+
+            if (pivot - 1 > start) {
+                stack.push(new Quicksort(start, pivot - 1));
+            }
+
+            if (pivot + 1 < end) {
+                stack.push(new Quicksort(pivot + 1, end));
+            }
+        }
+        return a;
+    }
 
 }
