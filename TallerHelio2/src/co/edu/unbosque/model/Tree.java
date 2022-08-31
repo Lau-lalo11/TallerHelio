@@ -56,6 +56,8 @@ public class Tree {
     
     public void inorder()
     {
+    	System.gc();
+    	
         if(root ==null)
         return ;
         Node temp=null;
@@ -71,7 +73,6 @@ public class Tree {
         /* removing the top element from the stack */
         temp=stack.pop();
         sorted.add(temp.key);
-        System.gc();
        }
     }
     

@@ -78,6 +78,7 @@ public class Quicksort {
             if (pivot + 1 < end) {
                 stack.push(new Quicksort(pivot + 1, end));
             }
+            System.out.println();
         }
         return a;
     }
