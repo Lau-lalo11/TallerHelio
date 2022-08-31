@@ -7,12 +7,20 @@ import java.util.stream.LongStream;
 
 import co.edu.unbosque.model.FuncionDeOrdenamiento;
 import co.edu.unbosque.view.Vista;
-
+/**
+ * La clase Controller representa el controlador en el patron de arquitectura MVC que unira las funciones de la vista y el modelo.
+ * Además contiene ciertos metodos que nos ayudan a generar datos.
+ * @author Laura Mateus, Natalia Ardila, Jeanpierr Ramos y Kevin Garcia.
+ *
+ */
 public class Controller {
 
 	private FuncionDeOrdenamiento funcionOrdenamiento;
 	private Vista vista;
-
+	/**
+	 * Representa el método constructor de la clase Controller, en el cual, se hacen las validaciones que permiten el 
+	 * correcto funcionamiento del programa.
+	 */
 	public Controller() {
 
 		vista = new Vista();
@@ -123,7 +131,9 @@ public class Controller {
 		}
 
 	}
-
+	/**
+	 * Representa el método que obtiene los tiempos de ejecución de cada método de ordenamiento.
+	 */
 	public void obtenerDatosAutomatizados() {
 
 		long tamanioNumeros =0;
@@ -195,7 +205,12 @@ public class Controller {
 			}
 		}
 	}
-
+	/**
+	 * Representa el método que se encarga de generar los datos aleatorios para organizarlos por cada método de ordenamiento.
+	 * @param numeroElementos Cantidad de datos que serán ingresados.
+	 * @return Retorna la versión String del array comprendido por la cantidad de datos generada en el parametro lleno de 
+	 * datos aleatorios.
+	 */
 	public long[] generarNumerosAleatorios(long numeroElementos) {
 
 		//usando Java 8
