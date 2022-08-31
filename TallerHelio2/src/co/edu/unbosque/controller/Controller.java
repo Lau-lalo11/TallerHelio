@@ -16,7 +16,7 @@ public class Controller {
 	public Controller() {
 
 		vista = new Vista();
-		
+		funcionOrdenamiento = new FuncionDeOrdenamiento();
 
 		vista.mostrarVentana("Bienvenido al ordenamiento de arreglos");
 		
@@ -88,11 +88,10 @@ public class Controller {
 				case 3: 
 
 					startTime = System.nanoTime();
-					//organizado = 
-					funcionOrdenamiento.getRadixSort().radixxsort(numeros);
+					organizado = funcionOrdenamiento.getRadixSort().radixxsort(numeros);
 					endTime = (System.nanoTime() - startTime);
 					resultado = "R: "+"Tamaño:"+tamanioNumeros+" Tiempo:"+ endTime +" NanoSegundos";
-
+					System.out.println(Arrays.toString(organizado));
 					vista.mostrarVentana("Resultados:\n"+resultado);
 
 					break;
@@ -209,7 +208,7 @@ public class Controller {
 			numerosAleatorios[i - 1] = numerosAleatorios[posicion];
 			numerosAleatorios[posicion] = tmp;
 		}
-		//System.out.println(Arrays.toString(numerosAleatorios));
+		System.out.println(Arrays.toString(numerosAleatorios));
 		return numerosAleatorios;
 	}
 

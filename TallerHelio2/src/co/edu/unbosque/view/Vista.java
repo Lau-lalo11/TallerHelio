@@ -60,7 +60,6 @@ public class Vista {
 		}catch (Exception e) {
 
 		}
-		System.out.println(texto);
 		return texto;
 	}
 
