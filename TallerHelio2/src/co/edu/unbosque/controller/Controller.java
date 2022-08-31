@@ -1,10 +1,9 @@
 package co.edu.unbosque.controller;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
+import java.util.stream.LongStream;
 
 import co.edu.unbosque.model.FuncionDeOrdenamiento;
 import co.edu.unbosque.view.Vista;
@@ -62,7 +61,8 @@ public class Controller {
 
 
 					startTime = System.nanoTime();
-					organizado = funcionOrdenamiento.getCocktailSort().cocktail_Sort(numeros);
+					//organizado = 
+					funcionOrdenamiento.getCocktailSort().cocktail_Sort(numeros);
 					endTime = (System.nanoTime() - startTime);
 
 					resultado = "C: "+"Tamaño:"+tamanioNumeros+" Tiempo:"+ endTime +" NanoSegundos";
@@ -72,7 +72,8 @@ public class Controller {
 				case 2: 
 
 					startTime = System.nanoTime();
-					organizado = funcionOrdenamiento.getQuicksort().iterativeQuicksort(numeros); 
+					//organizado = 
+					funcionOrdenamiento.getQuicksort().iterativeQuicksort(numeros); 
 					endTime = (System.nanoTime() - startTime);
 
 					resultado = "Q: "+"Tamaño:"+tamanioNumeros+" Tiempo:"+ endTime +" NanoSegundos";
@@ -82,33 +83,34 @@ public class Controller {
 				case 3: 
 
 					startTime = System.nanoTime();
-					organizado = funcionOrdenamiento.getRadixSort().radixSort(numeros);
+					//organizado = 
+					funcionOrdenamiento.getRadixSort().radixxsort(numeros);
 					endTime = (System.nanoTime() - startTime);
-
 					resultado = "R: "+"Tamaño:"+tamanioNumeros+" Tiempo:"+ endTime +" NanoSegundos";
 
 					vista.mostrarVentana("Resultados:\n"+resultado);
-					
+
 					break;
 				case 4: 
 					ArrayList<Long> numerosSorted;
 
 					startTime = System.nanoTime();
-					numerosSorted = funcionOrdenamiento.treeSort(numeros);
+					//numerosSorted = 
+					funcionOrdenamiento.treeSort(numeros);
 					endTime = (System.nanoTime() - startTime);
 
 					resultado = "B: "+"Tamaño:"+tamanioNumeros+" Tiempo:"+ endTime +" NanoSegundos";
 
 					vista.mostrarVentana("Resultados:\n"+resultado);
-					
+
 					break;
 				default:
 					vista.mostrarVentana("La opción ingresada no existe, vuelva longentarlo");
 					break;
 				}
 
-				
-				
+
+
 				if(resultado!="") vista.escribirContenido(resultado);
 				resultado="";
 			}catch(NumberFormatException e) {
@@ -120,21 +122,20 @@ public class Controller {
 
 
 	public long[] generarNumerosAleatorios(long numeroElementos) {
-		long[] numeros= new long[(int) numeroElementos];
-		ArrayList<Long> numeross = new ArrayList<>();
 
-		while(numeross.size() != numeroElementos) {
-			long aleatorio= (long) (Math.random()*numeroElementos*10000);
-			if(!numeross.contains(aleatorio)) { 
-				numeross.add(aleatorio);
-			}
+		//usando Java 8
+		long[] numerosAleatorios = LongStream.rangeClosed(1, numeroElementos).toArray();
+		//desordenando los elementos
+		Random r = new Random();
+		for (int i = numerosAleatorios.length; i > 0; i--) {
+			int posicion = r.nextInt(i);
+			long tmp = numerosAleatorios[i-1];
+			numerosAleatorios[i - 1] = numerosAleatorios[posicion];
+			numerosAleatorios[posicion] = tmp;
 		}
-
-		for(int x=0;x<numeroElementos;x++) {
-			numeros[x] = numeross.get(x);
-		}
-
-		return numeros;
+		//System.out.println(Arrays.toString(numerosAleatorios));
+		return numerosAleatorios;
 	}
 
 }
+

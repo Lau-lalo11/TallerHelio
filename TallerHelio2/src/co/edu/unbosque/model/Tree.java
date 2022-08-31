@@ -71,7 +71,7 @@ public class Tree {
         /* removing the top element from the stack */
         temp=stack.pop();
         sorted.add(temp.key);
-        System.out.print(temp.key+" ");
+        System.gc();
        }
     }
     
