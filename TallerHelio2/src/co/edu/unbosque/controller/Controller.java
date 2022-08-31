@@ -16,10 +16,10 @@ public class Controller {
 	public Controller() {
 
 		vista = new Vista();
-		funcionOrdenamiento = new FuncionDeOrdenamiento();
+		
 
 		vista.mostrarVentana("Bienvenido al ordenamiento de arreglos");
-
+		
 		long tamanioNumeros =0;
 		long[] numeros = null;
 		long[] organizado= null;
@@ -50,8 +50,13 @@ public class Controller {
 					vista.mostrarVentana("Ya se cargaron los datos.");
 				}
 				String resultado = "";
+				
+				System.gc();
+				
 				switch (opcion) {
 
+				
+				
 				case 0: vista.mostrarVentana("¡Vuelve pronto!");
 				break;
 
@@ -109,7 +114,7 @@ public class Controller {
 					break;
 				}
 
-
+				
 
 				if(resultado!="") vista.escribirContenido(resultado);
 				resultado="";
@@ -120,6 +125,77 @@ public class Controller {
 
 	}
 
+	public void obtenerDatosAutomatizados() {
+
+		long tamanioNumeros =0;
+		int[] prueba = {6000,60000,600000,6000000,60000000};
+		long[] numeros = null;
+		long[] organizado= null;
+		long startTime;
+		long endTime;
+		String resultado = "";
+
+		for (long l : prueba) {
+
+			tamanioNumeros = l;
+			int opciones = 4;
+			numeros = generarNumerosAleatorios(l);
+			while(opciones>=1) {
+				System.gc();
+				funcionOrdenamiento = new FuncionDeOrdenamiento();
+				switch (opciones) {
+
+
+				case 1: 
+
+
+					startTime = System.nanoTime();
+					//organizado = 
+					funcionOrdenamiento.getCocktailSort().cocktail_Sort(numeros);
+					endTime = (System.nanoTime() - startTime);
+
+					resultado = "C: "+"Tamaño:"+tamanioNumeros+" Tiempo:"+ endTime +" NanoSegundos";
+
+					break;
+				case 2: 
+
+					startTime = System.nanoTime();
+					//organizado = 
+					//funcionOrdenamiento.getQuicksort().iterativeQuicksort(numeros); 
+					funcionOrdenamiento.getRadixSort().radixxsort(numeros);
+					endTime = (System.nanoTime() - startTime);
+
+					resultado = "R: "+"Tamaño:"+tamanioNumeros+" Tiempo:"+ endTime +" NanoSegundos";
+
+					break;
+				case 3: 
+
+					startTime = System.nanoTime();
+					//organizado = 
+					//funcionOrdenamiento.getRadixSort().radixxsort(numeros);
+					funcionOrdenamiento.getQuicksort().iterativeQuicksort(numeros); 
+					endTime = (System.nanoTime() - startTime);
+					resultado = "Q: "+"Tamaño:"+tamanioNumeros+" Tiempo:"+ endTime +" NanoSegundos";
+
+
+					break;
+				case 4: 
+					//ArrayList<Long> numerosSorted;
+
+					startTime = System.nanoTime();
+					//numerosSorted = 
+					funcionOrdenamiento.treeSort(numeros);
+					endTime = (System.nanoTime() - startTime);
+					resultado = "B: "+"Tamaño:"+tamanioNumeros+" Tiempo:"+ endTime +" NanoSegundos";
+
+
+					break;
+				}
+				vista.escribirContenido(resultado);
+				opciones--;
+			}
+		}
+	}
 
 	public long[] generarNumerosAleatorios(long numeroElementos) {
 
