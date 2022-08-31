@@ -22,3 +22,4 @@ B: Tamaño:60000000 Tiempo:117864451500 NanoSegundos
 R: Tamaño:60000000 Tiempo:3516680000 NanoSegundos
 Q: Tamaño:60000000 Tiempo:63162072700 NanoSegundos
 C: Tamaño:60000000 Tiempo:26254500 NanoSegundos
+
