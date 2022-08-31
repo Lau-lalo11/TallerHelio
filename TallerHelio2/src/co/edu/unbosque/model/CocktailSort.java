@@ -1,6 +1,15 @@
 package co.edu.unbosque.model;
-
+/**
+ * En esta clase se ubicará un método el cual organizará cierta cantidad de datos.
+ * @author Laura Mateus, Natalia Ardila, Jeanpierr Ramos y Kevin Garcia.
+ *
+ */
 public class CocktailSort {
+	/**
+	 * 
+	 * @param arrayNumero
+	 * @return
+	 */
 	public long[] cocktail_Sort(long arrayNumero[]){
 		boolean organizado=true;
 		
