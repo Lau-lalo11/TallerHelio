@@ -31,6 +31,7 @@ public class FuncionDeOrdenamiento {
 	 */
 	public ArrayList<Long> treeSort(long[] numeros) {
 		tree.treeins(numeros);
+		
         tree.inorder();
         return tree.getSorted();
 	}
@@ -47,7 +48,8 @@ public class FuncionDeOrdenamiento {
 	 * Representa la función de ordenamiento de Quick Sort, ubicada en su propia clase.
 	 * @return Métodos de la clase Quicksort.
 	 */
-	public Quicksort getQuicksort() {
+	public Quicksort getQuicksort(long[] arr) {
+		quicksort.setArr(arr);
 		return quicksort;
 	}
 

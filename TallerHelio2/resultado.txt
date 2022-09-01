@@ -1,25 +1,84 @@
-B: Tamaño:6000 Tiempo:10981300 NanoSegundos
-R: Tamaño:6000 Tiempo:6619100 NanoSegundos
-Q: Tamaño:6000 Tiempo:41108800 NanoSegundos
-C: Tamaño:6000 Tiempo:420800 NanoSegundos
+Tipo de arreglo: -1
+B: Tamaño:6000 Tiempo:17424900 NanoSegundos
+Q: Tamaño:6000 Tiempo:2988700 NanoSegundos
+R: Tamaño:6000 Tiempo:4837900 NanoSegundos
+C: Tamaño:6000 Tiempo:209200 NanoSegundos
+-------------------------
+B: Tamaño:60000 Tiempo:15533400 NanoSegundos
+Q: Tamaño:60000 Tiempo:6317600 NanoSegundos
+R: Tamaño:60000 Tiempo:16910900 NanoSegundos
+C: Tamaño:60000 Tiempo:1655300 NanoSegundos
+-------------------------
+B: Tamaño:600000 Tiempo:24201900 NanoSegundos
+Q: Tamaño:600000 Tiempo:19596100 NanoSegundos
+R: Tamaño:600000 Tiempo:75989600 NanoSegundos
+C: Tamaño:600000 Tiempo:6384100 NanoSegundos
+-------------------------
+B: Tamaño:6000000 Tiempo:70420600 NanoSegundos
+Q: Tamaño:6000000 Tiempo:186558800 NanoSegundos
+R: Tamaño:6000000 Tiempo:659002300 NanoSegundos
+C: Tamaño:6000000 Tiempo:6141500 NanoSegundos
+-------------------------
+B: Tamaño:60000000 Tiempo:364157400 NanoSegundos
+Q: Tamaño:60000000 Tiempo:2146991100 NanoSegundos
+R: Tamaño:60000000 Tiempo:7630079900 NanoSegundos
+C: Tamaño:60000000 Tiempo:39922900 NanoSegundos
+-------------------------
+**************************
 
-B: Tamaño:60000 Tiempo:64935400 NanoSegundos
-R: Tamaño:60000 Tiempo:16579100 NanoSegundos
-Q: Tamaño:60000 Tiempo:744213000 NanoSegundos
-C: Tamaño:60000 Tiempo:3609200 NanoSegundos
+Tipo de arreglo: 0
+B: Tamaño:6000 Tiempo:9689300 NanoSegundos
+Q: Tamaño:6000 Tiempo:544400 NanoSegundos
+R: Tamaño:6000 Tiempo:449100 NanoSegundos
+C: Tamaño:6000 Tiempo:7600 NanoSegundos
+-------------------------
+B: Tamaño:60000 Tiempo:10617200 NanoSegundos
+Q: Tamaño:60000 Tiempo:1479200 NanoSegundos
+R: Tamaño:60000 Tiempo:12918100 NanoSegundos
+C: Tamaño:60000 Tiempo:78800 NanoSegundos
+-------------------------
+B: Tamaño:600000 Tiempo:14569200 NanoSegundos
+Q: Tamaño:600000 Tiempo:16587600 NanoSegundos
+R: Tamaño:600000 Tiempo:63933900 NanoSegundos
+C: Tamaño:600000 Tiempo:579600 NanoSegundos
+-------------------------
+B: Tamaño:6000000 Tiempo:61900300 NanoSegundos
+Q: Tamaño:6000000 Tiempo:195105000 NanoSegundos
+R: Tamaño:6000000 Tiempo:642345800 NanoSegundos
+C: Tamaño:6000000 Tiempo:3842400 NanoSegundos
+-------------------------
+B: Tamaño:60000000 Tiempo:257310100 NanoSegundos
+Q: Tamaño:60000000 Tiempo:2195039300 NanoSegundos
+R: Tamaño:60000000 Tiempo:7416625200 NanoSegundos
+C: Tamaño:60000000 Tiempo:44645900 NanoSegundos
+-------------------------
+**************************
 
-B: Tamaño:600000 Tiempo:676894800 NanoSegundos
-R: Tamaño:600000 Tiempo:66454700 NanoSegundos
-Q: Tamaño:600000 Tiempo:93597889000 NanoSegundos
-C: Tamaño:600000 Tiempo:7984900 NanoSegundos
-
-B: Tamaño:6000000 Tiempo:6110117200 NanoSegundos
-R: Tamaño:6000000 Tiempo:329946300 NanoSegundos
-Q: Tamaño:6000000 Tiempo:5545468800 NanoSegundos
-C: Tamaño:6000000 Tiempo:6327100 NanoSegundos
-
-B: Tamaño:60000000 Tiempo:117864451500 NanoSegundos
-R: Tamaño:60000000 Tiempo:3516680000 NanoSegundos
-Q: Tamaño:60000000 Tiempo:63162072700 NanoSegundos
-C: Tamaño:60000000 Tiempo:26254500 NanoSegundos
+Tipo de arreglo: 1
+B: Tamaño:6000 Tiempo:11493000 NanoSegundos
+Q: Tamaño:6000 Tiempo:5684700 NanoSegundos
+R: Tamaño:6000 Tiempo:365400 NanoSegundos
+C: Tamaño:6000 Tiempo:9500 NanoSegundos
+-------------------------
+B: Tamaño:60000 Tiempo:10061400 NanoSegundos
+Q: Tamaño:60000 Tiempo:9586800 NanoSegundos
+R: Tamaño:60000 Tiempo:5016300 NanoSegundos
+C: Tamaño:60000 Tiempo:65100 NanoSegundos
+-------------------------
+B: Tamaño:600000 Tiempo:21637600 NanoSegundos
+Q: Tamaño:600000 Tiempo:104848800 NanoSegundos
+R: Tamaño:600000 Tiempo:75189800 NanoSegundos
+C: Tamaño:600000 Tiempo:454800 NanoSegundos
+-------------------------
+B: Tamaño:6000000 Tiempo:49953900 NanoSegundos
+Q: Tamaño:6000000 Tiempo:1093368900 NanoSegundos
+R: Tamaño:6000000 Tiempo:655519900 NanoSegundos
+C: Tamaño:6000000 Tiempo:3594900 NanoSegundos
+-------------------------
+B: Tamaño:60000000 Tiempo:803680000 NanoSegundos
+Q: Tamaño:60000000 Tiempo:12933002000 NanoSegundos
+R: Tamaño:60000000 Tiempo:7480672200 NanoSegundos
+C: Tamaño:60000000 Tiempo:39521600 NanoSegundos
+-------------------------
+**************************
 

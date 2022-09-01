@@ -9,6 +9,12 @@ package co.edu.unbosque.model;
 public class Node {
 	 Long key;
      Node left, right;
+
+     public Node()
+     {
+      
+     }
+     
      
      /**
       * Representa el método constructor de la clase Node en el cual se inicializarán las variables.
