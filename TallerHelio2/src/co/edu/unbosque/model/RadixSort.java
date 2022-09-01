@@ -14,7 +14,7 @@ public class RadixSort {
 	 * @param n Numero de datos en el arreglo.
 	 * @return Dato de mayor valor en el arreglo.
 	 */
-    public static long getMax(long arr[], int n)
+    public long obtenerMaximo(long arr[], int n)
     {
         long mx = arr[0];
         for (int i = 1; i < n; i++)
@@ -24,36 +24,29 @@ public class RadixSort {
     }
  
     /**
-     * Representa el método en el cual se ordenará el arreglo.
+     * Este método se encarga de contar el arreglo y de rotar los valores de este.
      * @param arr Arreglo.
      * @param n Posición del arreglo.
      * @param exp Valor para operar en la cuenta.
      */
-    public static void countSort(long arr[], int n, int exp)
+    public void contarSort(long arr[], int n, int exp)
     {
-        long output[] = new long[n]; // output array
+        long output[] = new long[n];
         int i;
         long count[] = new long[10];
         Arrays.fill(count, 0);
  
-        // Store count of occurrences in count[]
         for (i = 0; i < n; i++)
             count[(int) ((arr[i] / exp) % 10)]++;
- 
-        // Change count[i] so that count[i] now contains
-        // actual position of this digit in output[]
+
         for (i = 1; i < 10; i++)
             count[i] += count[i - 1];
  
-        // Build the output array
         for (i = n - 1; i >= 0; i--) {
             output[(int) (count[(int) ((arr[i] / exp) % 10)] - 1)] = arr[i];
             count[(int) ((arr[i] / exp) % 10)]--;
         }
  
-        // Copy the output array to arr[], so that arr[] now
-        // contains sorted numbers according to current
-        // digit
         for (i = 0; i < n; i++)
             arr[i] = output[i];
         
@@ -65,17 +58,13 @@ public class RadixSort {
      * @param arr Arreglo.
      * @return Arreglo ordenado.
      */
-    public static long[] radixxsort(long arr[])
+    public long[] radixxsort(long arr[])
     {	
     	int n = arr.length;
-        // Find the maximum number to know number of digits
-        long m = getMax(arr, n);
+        long m = obtenerMaximo(arr, n);
  
-        // Do counting sort for every digit. Note that
-        // instead of passing digit number, exp is passed.
-        // exp is 10^i where i is current digit number
         for (int exp = 1; m / exp > 0; exp *= 10)
-            countSort(arr, n, exp);
+            contarSort(arr, n, exp);
         
         return arr;
     }

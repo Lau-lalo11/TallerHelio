@@ -6,11 +6,12 @@ package co.edu.unbosque.model;
  * @author Laura Mateus, Natalia Ardila, Jeanpierr Ramos y Kevin Garcia.
  *
  */
-public class Node {
-	 Long key;
-     Node left, right;
+public class Nodo {
+	
+	 private Long key;
+     private Nodo left, right;
 
-     public Node()
+     public Nodo()
      {
       
      }
@@ -20,7 +21,7 @@ public class Node {
       * Representa el método constructor de la clase Node en el cual se inicializarán las variables.
       * @param item Dato de inserción.
       */
-     public Node(Long item)
+     public Nodo(Long item)
      {
          key = item;
          left = right = null;
@@ -46,7 +47,7 @@ public class Node {
  	 * Se encarga de obtener el nodo a la izquierda del nodo seleccionado.
  	 * @return El nodo a la izquierda del nodo seleccionado.
  	 */
-     public Node getLeft() {
+     public Nodo getLeft() {
     	 return left;
      }
 
@@ -54,7 +55,7 @@ public class Node {
  	 * Se encarga de cambiar el nodo a la izquierda del nodo seleccionado.
  	 * @param left El nodo a la izquierda del nodo seleccionado.
  	 */
-     public void setLeft(Node left) {
+     public void setLeft(Nodo left) {
     	 this.left = left;
      }
 
@@ -62,7 +63,7 @@ public class Node {
  	 * Se encarga de obtener el nodo a la derecha del nodo seleccionado.
  	 * @return El nodo a la derecha del nodo seleccionado.
  	 */
-     public Node getRight() {
+     public Nodo getRight() {
     	 return right;
      }
 
@@ -70,7 +71,7 @@ public class Node {
  	 * Se encarga de cambiar el nodo a la derecha del nodo seleccionado.
  	 * @param right El nodo a la derecha del nodo seleccionado.
  	 */
-     public void setRight(Node right) {
+     public void setRight(Nodo right) {
     	 this.right = right;
      } 
 }
