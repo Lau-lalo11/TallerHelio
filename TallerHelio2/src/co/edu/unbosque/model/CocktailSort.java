@@ -1,6 +1,17 @@
 package co.edu.unbosque.model;
 
+/**
+ * En esta clase se ubicará un método Cocktail Sort, el cual organizará cierta cantidad de datos.
+ * @author Laura Mateus, Natalia Ardila, Jeanpierr Ramos y Kevin Garcia.
+ *
+ */
 public class CocktailSort {
+	
+	/**
+	 * Método encargado de ordenar los datos, ordenando en simultaneo ambos extremos del array.
+	 * @param arrayNumero Datos de entrada con orden aleatorio.
+	 * @return Array con los datos organizados.
+	 */
 	public long[] cocktail_Sort(long arrayNumero[]){
 		boolean organizado=true;
 		

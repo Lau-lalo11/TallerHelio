@@ -1,10 +1,19 @@
 package co.edu.unbosque.model;
 
 import java.util.Arrays;
-
+/**
+ * En esta clase se ubicará un método Radix Sort, el cual organizará cierta cantidad de datos.
+ * @author Laura Mateus, Natalia Ardila, Jeanpierr Ramos y Kevin Garcia.
+ *
+ */
 public class RadixSort {
 	
-	
+	/**
+	 * Representa el método encargado de obtener el dato mayor del arreglo.
+	 * @param arr Arreglo.
+	 * @param n Numero de datos en el arreglo.
+	 * @return Dato de mayor valor en el arreglo.
+	 */
     public static long getMax(long arr[], int n)
     {
         long mx = arr[0];
@@ -14,8 +23,12 @@ public class RadixSort {
         return mx;
     }
  
-    // A function to do counting sort of arr[] according to
-    // the digit represented by exp.
+    /**
+     * Representa el método en el cual se ordenará el arreglo.
+     * @param arr Arreglo.
+     * @param n Posición del arreglo.
+     * @param exp Valor para operar en la cuenta.
+     */
     public static void countSort(long arr[], int n, int exp)
     {
         long output[] = new long[n]; // output array
@@ -47,8 +60,11 @@ public class RadixSort {
         
     }
  
-    // The main function to that sorts arr[] of
-    // size n using Radix Sort
+    /**
+     * Representa el método en el cual se usaran los métodos anteriores para retornar el arreglo ya ordenado.
+     * @param arr Arreglo.
+     * @return Arreglo ordenado.
+     */
     public static long[] radixxsort(long arr[])
     {	
     	int n = arr.length;
@@ -63,39 +79,5 @@ public class RadixSort {
         
         return arr;
     }
-	
-	
-//	public static long[] radixSort(long[] arr) {
-//		long[][] bucket = new long[10][arr.length];
-//		long[] bucketOfElement = new long[10];
-//		long max=0;
-//		// Encuentra el elemento más grande en la matriz
-//		for(int i = 0 ; i < arr.length;i++) {
-//			if(arr[i]>max){
-//				max = arr[i];
-//			}
-//		}
-//		// Calcula el número de bits del elemento más grande
-//		long maxLength = (max+"").length();
-//		for(int m = 0,n=1;m<maxLength;m++,n*=10) {
-//			// Coloca los números en arr en los cubos correspondientes según sus unidades, decenas, centenas, etc.
-//			for(int i = 0 ; i < arr.length;i++) {
-//				int digit = (int) (arr[i]/n%10);
-//				// Asignar el valor de arr [i] a la matriz bidimensional en el depósito
-//				bucket[digit][(int) bucketOfElement[digit]] = arr[i];
-//				bucketOfElement[digit]++;
-//			}
-//			int index = 0;
-//			// Leer los elementos en el depósito y reasignarlos a arr
-//			for(int j = 0;j<10;j++) {
-//				for(int k = 0 ; k<bucketOfElement[j];k++) {
-//					arr[index] = bucket[j][k];
-//					index++;
-//				}
-//				bucketOfElement[j]=0;// Borrar el número de elementos en cada uno
-//			}
-//			}
-//		return arr;
-//		}
     
 }

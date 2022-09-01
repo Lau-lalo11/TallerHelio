@@ -1,20 +1,26 @@
 package co.edu.unbosque.controller;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Random;
 import java.util.stream.LongStream;
 
 import co.edu.unbosque.model.FuncionDeOrdenamiento;
 import co.edu.unbosque.view.Vista;
-
+/**
+ * La clase Controller representa el controlador en el patron de arquitectura MVC que unira las funciones de la vista y el modelo.
+ * Además contiene ciertos metodos que nos ayudan a generar datos.
+ * @author Laura Mateus, Natalia Ardila, Jeanpierr Ramos y Kevin Garcia.
+ *
+ */
 public class Controller {
 
 	private FuncionDeOrdenamiento funcionOrdenamiento;
 	private Vista vista;
-
+	/**
+	 * Representa el método constructor de la clase Controller, en el cual, se hacen las validaciones que permiten el 
+	 * correcto funcionamiento del programa.
+	 */
 	public Controller() {
 
 		vista = new Vista();
@@ -22,22 +28,21 @@ public class Controller {
 
 		vista.mostrarVentana("Bienvenido al ordenamiento de arreglos");
 
-		long tamanioNumeros =0;
-		long[] numeros = generarNumerosAleatorios(6000000, -1);
+		long tamanioNumeros =60000000;
+		long[] numeros = null;
 		long[] organizado= null;
 		long startTime;
 		long endTime;
 
-		startTime = System.nanoTime();
-		//organizado = 
-		//funcionOrdenamiento.getRadixSort().radixxsort(numeros);
-		funcionOrdenamiento.getQuicksort().iterativeQuicksort(numeros); 
-		endTime = (System.nanoTime() - startTime);
-		String resultado = "Q: "+"Tamaño:"+tamanioNumeros+" Tiempo:"+ endTime +" NanoSegundos";
+//		startTime = System.nanoTime();
+//		//organizado = 
+//		//funcionOrdenamiento.getRadixSort().radixxsort(numeros);
+//		funcionOrdenamiento.getQuicksort(numeros).quickSort(numeros.length);
+//		endTime = (System.nanoTime() - startTime);
+//		String resultado = "Q: "+"Tamaño:"+tamanioNumeros+" Tiempo:"+ endTime +" NanoSegundos";
+//		vista.escribirContenido(resultado);
 		
-		vista.escribirContenido(resultado);
-		
-		//obtenerDatosAutomatizados();
+		obtenerDatosAutomatizados();
 
 		//		int  opcion = -1;
 		//		while(opcion != 0) {
@@ -91,7 +96,7 @@ public class Controller {
 		//
 		//					startTime = System.nanoTime();
 		//					//organizado = 
-		//					funcionOrdenamiento.getQuicksort().iterativeQuicksort(numeros); 
+		//					funcionOrdenamiento.getQuicksort(numeros).quickSort(numeros.length);
 		//					endTime = (System.nanoTime() - startTime);
 		//
 		//					resultado = "Q: "+"Tamaño:"+tamanioNumeros+" Tiempo:"+ endTime +" NanoSegundos";
@@ -137,7 +142,9 @@ public class Controller {
 		//		}
 
 	}
-
+	/**
+	 * Representa el método que obtiene los tiempos de ejecución de cada método de ordenamiento.
+	 */
 	public void obtenerDatosAutomatizados() {
 
 		long tamanioNumeros =0;
@@ -192,8 +199,7 @@ public class Controller {
 
 						startTime = System.nanoTime();
 						//organizado = 
-						//funcionOrdenamiento.getRadixSort().radixxsort(numeros);
-						funcionOrdenamiento.getQuicksort().iterativeQuicksort(numeros); 
+						funcionOrdenamiento.getQuicksort(numeros).quickSort(numeros.length);
 						endTime = (System.nanoTime() - startTime);
 						resultado = "Q: "+"Tamaño:"+tamanioNumeros+" Tiempo:"+ endTime +" NanoSegundos";
 
@@ -222,7 +228,19 @@ public class Controller {
 		}
 	}
 
+
+	
+
+	/**
+	 * Representa el método que se encarga de generar los datos aleatorios para organizarlos por cada método de ordenamiento.
+	 * @param numeroElementos Cantidad de datos que serán ingresados.
+	 * @return Retorna la versión String del array comprendido por la cantidad de datos generada en el parametro lleno de 
+	 * datos aleatorios.
+	 */
 	public long[] generarNumerosAleatorios(long numeroElementos, int tipoArreglo) {
+
+		//usando Java 8
+
 		long[] numerosAleatorios = LongStream.rangeClosed(1, numeroElementos).toArray();
 
 		//Desorganizar
@@ -252,6 +270,7 @@ public class Controller {
 		}
 		System.out.println("acabe");
 		System.gc();
+		
 		return numerosAleatorios;
 	}
 

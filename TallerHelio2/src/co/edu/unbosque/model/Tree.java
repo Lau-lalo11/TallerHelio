@@ -2,19 +2,27 @@ package co.edu.unbosque.model;
 
 import java.util.ArrayList;
 import java.util.Stack;
-
+/**
+ * En esta clase se ubicará un método de Arboles, el cual organizará cierta cantidad de datos.
+ * @author Laura Mateus, Natalia Ardila, Jeanpierr Ramos y Kevin Garcia.
+ *
+ */
 public class Tree {
 	// Root of BST
     Node root;
     ArrayList<Long> sorted;
-    // Constructor
+    /**
+     * Representa el método constructor de la clase Quicksort, en el cual se inicializan las variables.
+     */
     Tree(){
     	sorted = new ArrayList<>();
         root = null;
     }
  
-    // This method mainly
-    // calls insertRec()
+    /**
+     * Representa el método en el cual se llama a insertRec().
+     * @param key Dato den el nodo.
+     */
     public void insert(Long key){
         root = insertRec(root, key);
     }
@@ -92,6 +100,13 @@ public class Tree {
     
     /* A recursive function to
     insert a new key in BST */
+    /**
+     * Representa el método en el cual se inserta de manera recursiva los nodos.
+     * @param root Datos en los nodos.
+     * @param key Dato en el nodo.
+     * @return Nodo a la cabeza del árbol.
+     */
+
     public Node insertRec(Node root, Long key){
  
         /* If the tree is empty,
@@ -112,8 +127,10 @@ public class Tree {
         return root;
     }
      
-    // A function to do
-    // inorder traversal of BST
+    /**
+     * Representa el método en el cual se ordenan transversalmente los datos en el arbol.
+     * @param root Datos en los nodos.
+     */
     public void inorderRec(Node root){
     	
     	
@@ -125,6 +142,9 @@ public class Tree {
         
     }
     
+    /**
+     * Representa el método en el cual se ordenan los datos del arbol.
+     */
     public void inorder()
     {
     	System.gc();
@@ -147,7 +167,10 @@ public class Tree {
        }
     }
     
-    
+    /**
+     * Representa el método en el cual se realizan las inserciones de los nodos en los arboles.
+     * @param arr Arreglo.
+     */
     public void treeins(long arr[])
     {
     	for (long l : arr) {
@@ -156,10 +179,18 @@ public class Tree {
          
     }
 
+    /**
+     * Se encarga de obtener el array ordenado.
+     * @return Array ordenado.
+     */
 	public ArrayList<Long> getSorted() {
 		return sorted;
 	}
 
+	/**
+	 * Se encarga de cambiar el array ordenado.
+	 * @param sorted Array ordenado.
+	 */
 	public void setSorted(ArrayList<Long> sorted) {
 		this.sorted = sorted;
 	}
