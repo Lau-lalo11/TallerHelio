@@ -21,6 +21,7 @@ public class FuncionDeOrdenamiento {
 
 	public ArrayList<Long> treeSort(long[] numeros) {
 		tree.treeins(numeros);
+		
         tree.inorder();
         return tree.getSorted();
 	}

@@ -6,6 +6,11 @@ public class Node {
 	 Long key;
      Node left, right;
 
+     public Node()
+     {
+      
+     }
+     
      public Node(Long item)
      {
          key = item;
