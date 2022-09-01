@@ -11,6 +11,9 @@ public class Nodo {
 	 private Long key;
      private Nodo left, right;
 
+     /**
+      * Representa el método constructor de la clase Nodo, el cual sirve de referencia para la clase Tree.
+      */
      public Nodo()
      {
       

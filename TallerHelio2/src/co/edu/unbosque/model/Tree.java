@@ -27,7 +27,10 @@ public class Tree {
         root = insertRec(root, key);
     }
      
-    
+    /**
+     * Representa el método que se encarga de insertar nodos en el arbol.
+     * @param e Determinado nodo.
+     */
     public void insertt(Long e) {        
         if (root == null) {
             root = new Nodo(e);
@@ -55,6 +58,11 @@ public class Tree {
         
     }
     
+    /**
+     * Representa el método que se encarga de insertar nodos en el arbol.
+     * @param key Dato del nodo.
+     * @return Nuevos nodos.
+     */
     public Nodo insert2(long key)
     {
         
@@ -90,7 +98,6 @@ public class Tree {
      * @param key Dato en el nodo.
      * @return Nodo a la cabeza del árbol.
      */
-
     public Nodo insertRec(Nodo root, Long key){
  
         if (root == null){

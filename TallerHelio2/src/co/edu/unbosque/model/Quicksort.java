@@ -14,40 +14,11 @@ public class Quicksort {
     public Quicksort() {
 		
     }
-
-    /**
-     * Representa el método que se encarga de cambiar la posición de un dato del arreglo.
-     * @param arr Arreglo.
-     * @param i La posición de un dato del arreglo.
-     * @param j La posición con la que cambia un dato del arreglo.
-     */
-  
     
     /**
-     * Representa el método que se encarga de realizar cortes en determinadas secciones del arreglo y ordenarlas en funcion del pivot.
-     * @param a Arreglo.
-     * @param start Valor de inicio.
-     * @param end Valor de fin.
-     * @return Ls seccion que se ordena parcialmente periodicamente.
+     * Representa el método que se encarga de organizar el arreglo.
+     * @param size Tamaño del arrego.
      */
- 
-    
-    
-
-    /**
-     * Representa el método que en encarga de iterar el proceso de ordenamiento en funcion de las particiones.
-     * @param a Arreglo.
-     * @return Datos organizados.
-     */
- 
-    
-    
-    
-    
-    
-    
-    
-    
     public void quickSort(final int size) {
         int l = 0;
         int r = size - 1;
@@ -68,7 +39,12 @@ public class Quicksort {
             arr[temp] = -arr[temp];
         }
     }
-
+    /**
+     * Se encarga de hallar el dato siguiente al seleccionado.
+     * @param l Posición determinada de un dato en el areglo.
+     * @param size Tamaño del arreglo.
+     * @return El dato siguiente al seleccionado.
+     */
     public int encontrarElSiguiente(final int l, final int size) {
         for (int i = l; i < size; ++i) {
             if (arr[i] < 0)
@@ -77,6 +53,12 @@ public class Quicksort {
         return size - 1;
     }
 
+    /**
+     * Se encarga de realizar la particion en función del pivot y cambia los datos de posición.
+     * @param l Posición determinada de un dato en el areglo.
+     * @param r Posición determinada de un dato en el areglo.
+     * @return Partición parcialmente organizado
+     */
     public int particion(int l, int r) {
         long pivot = arr[(l + r) / 2];
         while (l <= r) {
@@ -95,10 +77,18 @@ public class Quicksort {
         return l;
     }
 
+    /**
+     * Se encarga de obtener el arreglo que contiene los datos.
+     * @return Arreglo de los datos
+     */
 	public long[] getArr() {
 		return arr;
 	}
-
+	
+	/**
+	 * Se encarga de cambiar el arreglo que contiene los datos.
+	 * @param arr Arreglo de los datos
+	 */
 	public void setArr(long[] arr) {
 		this.arr = arr;
 	}
