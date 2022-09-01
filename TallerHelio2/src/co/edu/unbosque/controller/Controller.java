@@ -35,7 +35,7 @@ public class Controller {
 		long endTime;
 
 		
-		obtenerDatosAutomatizados();
+		obtenerDatosAutomatizados(); 
 	}
 	/**
 	 * Representa el método que obtiene los tiempos de ejecución de cada método de ordenamiento.
@@ -45,14 +45,15 @@ public class Controller {
 		long tamanioNumeros =0;
 		int[] prueba = {6000,60000,600000,6000000,60000000};
 		long[] numeros = null;
+		long[] temp = null;
 		long[] organizado= null;
 		long startTime;
 		long endTime;
 		String resultado = "";
 
 		
-		//-2: ascendente
-		//-1: descendente
+		//-2: Ascendente
+		//-1: Descendiente
 		//0: aleatorio
 		int tipos=-2;
 		while(tipos!=1) {
@@ -61,8 +62,9 @@ public class Controller {
 
 				tamanioNumeros = l;
 				int opciones = 4;
-				numeros = generarNumerosAleatorios(l,tipos);
+				temp = generarNumerosAleatorios(l,tipos);
 				while(opciones>=1) {
+					numeros = temp.clone();
 					System.gc();
 					funcionOrdenamiento = new FuncionDeOrdenamiento();
 					switch (opciones) {
