@@ -34,13 +34,6 @@ public class Controller {
 		long startTime;
 		long endTime;
 
-//		startTime = System.nanoTime();
-//		//organizado = 
-//		//funcionOrdenamiento.getRadixSort().radixxsort(numeros);
-//		funcionOrdenamiento.getQuicksort(numeros).quickSort(numeros.length);
-//		endTime = (System.nanoTime() - startTime);
-//		String resultado = "Q: "+"Tamaño:"+tamanioNumeros+" Tiempo:"+ endTime +" NanoSegundos";
-//		vista.escribirContenido(resultado);
 		
 		obtenerDatosAutomatizados();
 
@@ -176,9 +169,8 @@ public class Controller {
 					case 1: 
 
 
-						startTime = System.nanoTime();
-						//organizado = 
-						funcionOrdenamiento.getCocktailSort().cocktail_Sort(numeros);
+						startTime = System.nanoTime(); 
+						funcionOrdenamiento.getCocktailSort().cocktailSort(numeros);
 						endTime = (System.nanoTime() - startTime);
 
 						resultado = "C: "+"Tamaño:"+tamanioNumeros+" Tiempo:"+ endTime +" NanoSegundos";
@@ -187,8 +179,6 @@ public class Controller {
 					case 2: 
 
 						startTime = System.nanoTime();
-						//organizado = 
-						//funcionOrdenamiento.getQuicksort().iterativeQuicksort(numeros); 
 						funcionOrdenamiento.getRadixSort().radixxsort(numeros);
 						endTime = (System.nanoTime() - startTime);
 
@@ -198,7 +188,6 @@ public class Controller {
 					case 3: 
 
 						startTime = System.nanoTime();
-						//organizado = 
 						funcionOrdenamiento.getQuicksort(numeros).quickSort(numeros.length);
 						endTime = (System.nanoTime() - startTime);
 						resultado = "Q: "+"Tamaño:"+tamanioNumeros+" Tiempo:"+ endTime +" NanoSegundos";
@@ -206,12 +195,9 @@ public class Controller {
 
 						break;
 					case 4: 
-						//ArrayList<Long> numerosSorted;
-
+			
 						startTime = System.nanoTime();
-						//numerosSorted = 
 						funcionOrdenamiento.treeSort(numeros);
-						//vista.mostrarVentana(numerosSorted.toString());
 						endTime = (System.nanoTime() - startTime);
 						resultado = "B: "+"Tamaño:"+tamanioNumeros+" Tiempo:"+ endTime +" NanoSegundos";
 
@@ -239,15 +225,10 @@ public class Controller {
 	 */
 	public long[] generarNumerosAleatorios(long numeroElementos, int tipoArreglo) {
 
-		//usando Java 8
-
 		long[] numerosAleatorios = LongStream.rangeClosed(1, numeroElementos).toArray();
 
-		//Desorganizar
 		if(tipoArreglo==0) {
-			//usando Java 8
 
-			//desordenando los elementos
 			Random r = new Random();
 			for (int i = numerosAleatorios.length; i > 0; i--) {
 				int posicion = r.nextInt(i);
@@ -255,20 +236,16 @@ public class Controller {
 				numerosAleatorios[i - 1] = numerosAleatorios[posicion];
 				numerosAleatorios[posicion] = tmp;
 			}
-			//System.out.println(Arrays.toString(numerosAleatorios));
-
-			//Descendente
+	
 		}else if(tipoArreglo ==-1) {
-			long[] sortedDesc = Arrays.stream(numerosAleatorios)            // o use, IntStream.of(arr)
+			long[] descendientes = Arrays.stream(numerosAleatorios) 
 					.boxed()
 					.sorted(Collections.reverseOrder())
 					.mapToLong(Long::longValue)
 					.toArray();
 			System.gc();
-			System.out.println("acabe");
-			return sortedDesc;
+			return descendientes;
 		}
-		System.out.println("acabe");
 		System.gc();
 		
 		return numerosAleatorios;

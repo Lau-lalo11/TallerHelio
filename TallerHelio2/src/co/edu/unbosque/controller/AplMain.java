@@ -5,6 +5,7 @@ package co.edu.unbosque.controller;
  *
  */
 public class AplMain {
+	
 	/**
 	 * Método que permite la ejecución del programa.
 	 * @param args Perametro array que permite la compilación del programa.

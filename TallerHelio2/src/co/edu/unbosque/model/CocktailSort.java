@@ -12,7 +12,7 @@ public class CocktailSort {
 	 * @param arrayNumero Datos de entrada con orden aleatorio.
 	 * @return Array con los datos organizados.
 	 */
-	public long[] cocktail_Sort(long arrayNumero[]){
+	public long[] cocktailSort(long arrayNumero[]){
 		boolean organizado=true;
 		
 		while(organizado) {

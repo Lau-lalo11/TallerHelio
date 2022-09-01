@@ -8,13 +8,13 @@ import java.util.Stack;
  *
  */
 public class Tree {
-	// Root of BST
-    Node root;
-    ArrayList<Long> sorted;
+
+    private Nodo root;
+    private ArrayList<Long> sorted;
     /**
      * Representa el método constructor de la clase Quicksort, en el cual se inicializan las variables.
      */
-    Tree(){
+    public Tree(){
     	sorted = new ArrayList<>();
         root = null;
     }
@@ -23,32 +23,31 @@ public class Tree {
      * Representa el método en el cual se llama a insertRec().
      * @param key Dato den el nodo.
      */
-    public void insert(Long key){
+    public void insertar(Long key){
         root = insertRec(root, key);
     }
      
     
     public void insertt(Long e) {        
         if (root == null) {
-            root = new Node(e); //how would this work with a null root?
-             //that's it, we're done (when is this ever false by the way?)
+            root = new Nodo(e);
         }
-        Node current = root; 
-        while (true) { //brackets! indenting is important for readabilty
-            Node parent=current;
+        Nodo current = root; 
+        while (true) { 
+            Nodo parent=current;
             if (current.getKey().compareTo(e) < 0) {
                 current = current.getRight();
-                if(current==null) { //we don't have a right node, need to make one
-                  current = new Node();
+                if(current==null) { 
+                  current = new Nodo();
                   parent.setRight(current);
-                  break; //we have a new node in "current" that is empty
+                  break; 
                 }
             } else { 
                 current= current.getLeft();
-                if(current==null) { //we don't have a left node, need to make one
-                  current = new Node();
+                if(current==null) { 
+                  current = new Nodo();
                   parent.setLeft(current);
-                  break;  //we have a new node in "current" that is empty
+                  break; 
                 }
             }
         }
@@ -56,50 +55,35 @@ public class Tree {
         
     }
     
-    public Node insert2(long key)
+    public Nodo insert2(long key)
     {
-        // Create a new Node containing
-        // the new element
-        Node newnode = new Node(key);
+        
+        Nodo newnode = new Nodo(key);
  
-        // Pointer to start traversing from root and
-        // traverses downward path to search
-        // where the new node to be inserted
-        Node x = root;
+        Nodo x = root;
  
-        // Pointer y maintains the trailing
-        // pointer of x
-        Node y = null;
+        Nodo y = null;
  
         while (x != null) {
             y = x;
-            if (key < x.key)
-                x = x.left;
+            if (key < x.getKey())
+                x = x.getLeft();
             else
-                x = x.right;
+                x = x.getRight();
         }
  
-        // If the root is null i.e the tree is empty
-        // The new node is the root node
         if (y == null)
             y = newnode;
  
-        // If the new key is less than the leaf node key
-        // Assign the new node to be its left child
-        else if (key < y.key)
-            y.left = newnode;
+        else if (key < y.getKey())
+            y.setLeft(newnode);
  
-        // else assign the new node its right child
         else
-            y.right = newnode;
+            y.setRight(newnode);
  
-        // Returns the pointer where the
-        // new node is inserted
         return y;
     }
     
-    /* A recursive function to
-    insert a new key in BST */
     /**
      * Representa el método en el cual se inserta de manera recursiva los nodos.
      * @param root Datos en los nodos.
@@ -107,21 +91,17 @@ public class Tree {
      * @return Nodo a la cabeza del árbol.
      */
 
-    public Node insertRec(Node root, Long key){
+    public Nodo insertRec(Nodo root, Long key){
  
-        /* If the tree is empty,
-        return a new node */
         if (root == null){
-            root = new Node(key);
+            root = new Nodo(key);
             return root;
         }
- 
-        /* Otherwise, recur
-        down the tree */
-        if (key < root.key)
-            root.left = insertRec(root.left, key);
-        else if (key > root.key)
-            root.right = insertRec(root.right, key);
+
+        if (key < root.getKey())
+            root.setLeft(insertRec(root.getLeft(), key));
+        else if (key > root.getKey())
+            root.setRight(insertRec(root.getRight(), key));
  
         /* return the root */
         return root;
@@ -131,13 +111,13 @@ public class Tree {
      * Representa el método en el cual se ordenan transversalmente los datos en el arbol.
      * @param root Datos en los nodos.
      */
-    public void inorderRec(Node root){
+    public void inorderRec(Nodo root){
     	
     	
         if (root != null){
-            inorderRec(root.left);
-            sorted.add(root.key);
-            inorderRec(root.right);
+            inorderRec(root.getLeft());
+            sorted.add(root.getKey());
+            inorderRec(root.getRight());
         }
         
     }
@@ -151,19 +131,17 @@ public class Tree {
     	
         if(root ==null)
         return ;
-        Node temp=null;
-        Stack<Node> stack=new Stack<Node>(); //Creating an empty Stack 
-        for(temp=root; stack.size()>0 || temp!=null ;temp=temp.right)
+        Nodo temp=null;
+        Stack<Nodo> stack=new Stack<Nodo>(); 
+        for(temp=root; stack.size()>0 || temp!=null ;temp=temp.getRight())
         {
-        /*loop until we are on the left most node of the current node */
          while(temp!=null)
          {
-                 stack.push(temp);  //inserting an element into stack
-                 temp=temp.left;
+                 stack.push(temp);  
+                 temp=temp.getLeft();
         }
-        /* removing the top element from the stack */
         temp=stack.pop();
-        sorted.add(temp.key);
+        sorted.add(temp.getKey());
        }
     }
     
@@ -194,9 +172,6 @@ public class Tree {
 	public void setSorted(ArrayList<Long> sorted) {
 		this.sorted = sorted;
 	}
-    
-    
- 
 
 }
 
